@@ -9,6 +9,4 @@ general, don't really understand why we're doing certain things in our sprint to
 So, I'm just looking forward to the solution lecture, where I hope we get some of this
 information instead of spending hours in documentation :).
 
-I got to a deployment, but nothing is showing when I go to the url. And have no idea
-what might be wrong or how to test certain steps, so just going to wait until 
-solution lecture.
+I got to deployment and the site is working as it did locally.
