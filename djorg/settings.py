@@ -27,6 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
+# DEBUG = False
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'bookmarks.apps.BookmarksConfig',
     'notes',
     'rest_framework',
+    'rest_framework.authtoken',
+    'graphene_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,8 +137,20 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/bookmarks/'
 
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    ]
+        #'rest_framework_simplejwt.authentication.JWTAuthenticator',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
+GRAPHENE = {
+    'SCHEMA': 'djorg.schema.schema' # dir.filename.varname
 }
