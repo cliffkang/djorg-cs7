@@ -28,7 +28,7 @@ router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
     # path('', TemplateView.as_view(template_name='djorg_base.html')),
-    path('', include('notes.urls')),
+    # path('', include('notes.urls')),
     path('', include('frontend.urls')),
     path('admin/', admin.site.urls),
     path('bookmarks/', include('bookmarks.urls')),
