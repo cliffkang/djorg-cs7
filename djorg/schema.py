@@ -5,6 +5,7 @@ import users.schema
 
 
 class Query(
+    users.schema.Query,
     notes.schema.Query,
     graphene.ObjectType,
 ):
